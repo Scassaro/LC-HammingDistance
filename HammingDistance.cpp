@@ -1,8 +1,8 @@
 class Solution {
 public:
     int hammingDistance(int x, int y) {
-        vector<int> XBin = ConvertTobinary(x);
-        vector<int> YBin = ConvertTobinary(y);
+        vector<int> XBin = ConvertToBinary(x);
+        vector<int> YBin = ConvertToBinary(y);
         int HamDis = 0;
         for(int i = 0; i < XBin.size() || i < YBin.size(); i++)
             if(XBin[i] != YBin[i])
@@ -12,13 +12,13 @@ public:
     vector<int> ConvertToBinary(int integer)
     {
         bool odd = false;
-        vector Binary<int>;
+        vector<int> Binary;
         while(integer > 1)
         {
-            if(integer % 2 = 0)
+            if(integer % 2 == 0)
             {
                 integer / 2;
-                Binary.push_back(1)
+                Binary.push_back(1);
             }
             else
             {
