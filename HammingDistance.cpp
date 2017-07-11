@@ -1,23 +1,30 @@
 class Solution {
 public:
     int hammingDistance(int x, int y) {
-        vector<int> XBin = ConvertToBinary(x);
-        vector<int> YBin = ConvertToBinary(y);
+        deque<int> XBin = ConvertToBinary(x);
+        deque<int> YBin = ConvertToBinary(y);
         int HamDis = 0;
+        while(XBin.size() != YBin.size())
+        {
+            if(XBin.size() > YBin.size())
+                YBin.push_front(0);
+            else if(XBin.size() < YBin.size())
+                XBin.push_front(0);
+        }
         for(int i = 0; i < XBin.size() || i < YBin.size(); i++)
             if(XBin[i] != YBin[i])
                 HamDis++;
         return HamDis;
     }
-    vector<int> ConvertToBinary(int integer)
+    deque<int> ConvertToBinary(int integer)
     {
-        vector<int> Binary;
+        deque<int> Binary;
         for(; integer > 0; integer /= 2)
         {
             if(integer % 2 == 0)
-                Binary.insert(Binary.begin(), 1);
+                Binary.push_front(1);
             else
-                Binary.insert(Binary.begin(), 0); 
+                Binary.push_front(0); 
         }
         return Binary;
     }
