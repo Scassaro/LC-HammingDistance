@@ -11,7 +11,7 @@ public:
             else if(XBin.size() < YBin.size())
                 XBin.push_front(0);
         }
-        for(int i = 0; i < XBin.size() || i < YBin.size(); i++)
+        for(int i = 0; i < XBin.size() && i < YBin.size(); i++)
             if(XBin[i] != YBin[i])
                 HamDis++;
         return HamDis;
@@ -22,9 +22,9 @@ public:
         for(; integer > 0; integer /= 2)
         {
             if(integer % 2 == 0)
-                Binary.push_front(1);
+                Binary.push_front(0);
             else
-                Binary.push_front(0); 
+                Binary.push_front(1); 
         }
         return Binary;
     }
