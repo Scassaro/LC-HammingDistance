@@ -11,25 +11,14 @@ public:
     }
     vector<int> ConvertToBinary(int integer)
     {
-        bool odd = false;
         vector<int> Binary;
-        while(integer > 1)
+        for(; integer > 0; integer /= 2)
         {
             if(integer % 2 == 0)
-            {
-                integer / 2;
-                Binary.push_back(1);
-            }
+                Binary.insert(Binary.begin(), 1);
             else
-            {
-                odd = true;
-                integer -= 1;
-            }
+                Binary.insert(Binary.begin(), 0); 
         }
-        if (odd)
-            Binary.push_back(1);
-        else
-            Binary.push_back(0);
         return Binary;
     }
 };
